@@ -9,7 +9,7 @@ from app.repository.notification import NotificationRepository
 from app.services.notification import NotificationService
 
 router = APIRouter(prefix='/notification', tags=['notification'])
-@router.post("/", response_model=APIBaseResponse[NotificationSchema])
+@router.post("", response_model=APIBaseResponse[NotificationSchema])
 def create(payload: NotificationCreate, db: Session = Depends(get_db_instance)):
     repository = NotificationRepository(db)
     service = NotificationService(repository)
